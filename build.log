@@ -1,0 +1,14 @@
+gcc -W -Wall -lsocket -lpthread -o httpd httpd.c
+httpd.c: In function ‘startup’:
+httpd.c:437: warning: pointer targets in passing argument 3 of ‘getsockname’ differ in signedness
+/usr/include/sys/socket.h:119: note: expected ‘socklen_t * __restrict__’ but argument is of type ‘int *’
+httpd.c: In function ‘main’:
+httpd.c:491: warning: pointer targets in passing argument 3 of ‘accept’ differ in signedness
+/usr/include/sys/socket.h:214: note: expected ‘socklen_t * __restrict__’ but argument is of type ‘int *’
+httpd.c:495: warning: passing argument 3 of ‘pthread_create’ from incompatible pointer type
+/usr/include/pthread.h:225: note: expected ‘void * (*)(void *)’ but argument is of type ‘void (*)(int)’
+httpd.c:495: warning: passing argument 4 of ‘pthread_create’ makes pointer from integer without a cast
+/usr/include/pthread.h:225: note: expected ‘void * __restrict__’ but argument is of type ‘int’
+/usr/bin/ld: cannot find -lsocket
+collect2: ld returned 1 exit status
+make: *** [httpd] Error 1
